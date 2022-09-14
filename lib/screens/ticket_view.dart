@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:hello_world/widgets/thick_container.dart';
 import '../utils/app_layout.dart';
 import '../utils/app_styles.dart';
@@ -17,10 +18,11 @@ class TicketView extends StatelessWidget {
         margin: const EdgeInsets.only(left: 16),
         child: Column(
           children: [
+            //  BLUE PART OF TICKET
             Container(
-              decoration: const BoxDecoration(
-                color: Color(0xFF526799),
-                borderRadius: BorderRadius.only(
+              decoration: BoxDecoration(
+                color: Styles.blueColor,
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(21),
                   topRight: Radius.circular(21),
                 ),
@@ -66,6 +68,7 @@ class TicketView extends StatelessWidget {
                                 },
                               ),
                             ),
+                            // AIRPLANE CENTERED ON THE STACK
                             Center(
                               child: Transform.rotate(
                                 angle: 1.5,
@@ -86,8 +89,112 @@ class TicketView extends StatelessWidget {
                             Styles.headlineStyle3.copyWith(color: Colors.white),
                       ),
                     ],
-                  )
+                  ),
+                  const Gap(3),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: 100,
+                        child: Text(
+                          'New-York',
+                          style: Styles.headlineStyle4
+                              .copyWith(color: Colors.white),
+                        ),
+                      ),
+                      Text('8H 30M',
+                          style: Styles.headlineStyle4
+                              .copyWith(color: Colors.white)),
+                      SizedBox(
+                        width: 100,
+                        child: Text(
+                          'London',
+                          textAlign: TextAlign.end,
+                          style: Styles.headlineStyle4
+                              .copyWith(color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
+              ),
+            ),
+            // MIDDLE PART OF TICKET
+            Container(
+              color: Styles.orangeColor,
+              child: Row(
+                // TICKET HOLES
+                children: [
+                  // LEFT HOLE
+                  const SizedBox(
+                    height: 20,
+                    width: 10,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(10),
+                          bottomRight: Radius.circular(10),
+                        ),
+                      ),
+                    ),
+                  ),
+                  // MIDLE CUTOUT
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(12),
+                      child: LayoutBuilder(
+                        builder:
+                            (BuildContext context, BoxConstraints constraints) {
+                          return Flex(
+                            direction: Axis.horizontal,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisSize: MainAxisSize.max,
+                            children: List.generate(
+                              (constraints.constrainWidth() / 15).floor(),
+                              (index) => const SizedBox(
+                                width: 5,
+                                height: 1,
+                                child: DecoratedBox(
+                                  decoration:
+                                      BoxDecoration(color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                  // RIGHT HOLE
+                  const SizedBox(
+                    height: 20,
+                    width: 10,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            // ORANGE PART OF TICKET
+            Container(
+              decoration: BoxDecoration(
+                color: Styles.orangeColor,
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(21),
+                  bottomRight: Radius.circular(21),
+                ),
+              ),
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                children: [],
               ),
             )
           ],
