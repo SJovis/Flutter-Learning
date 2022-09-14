@@ -48,14 +48,14 @@ class _RootPageState extends State<RootPage> {
               icon: Icon(
                 Icons.home,
                 color: Colors.deepPurple.shade900,
-                size: 34.0,
+                size: 30.0,
               ),
               label: 'Home'),
           NavigationDestination(
               icon: Icon(
                 Icons.person,
                 color: Colors.deepPurple.shade900,
-                size: 34.0,
+                size: 30.0,
               ),
               label: 'Profile')
         ],
