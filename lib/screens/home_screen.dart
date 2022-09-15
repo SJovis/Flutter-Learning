@@ -2,6 +2,7 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hello_world/utils/app_info_list.dart';
+import '../utils/app_layout.dart';
 import '../utils/app_styles.dart';
 import 'package:hello_world/screens/ticket_view.dart';
 
@@ -18,10 +19,10 @@ class HomeScreen extends StatelessWidget {
         children: [
           // Book Tickets
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: AppLayout.getHeight(20)),
             child: Column(
               children: [
-                const Gap(40),
+                Gap(AppLayout.getHeight(40)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -32,7 +33,7 @@ class HomeScreen extends StatelessWidget {
                           'Good morning',
                           style: Styles.headlineStyle3,
                         ),
-                        const Gap(5),
+                        Gap(AppLayout.getHeight(5)),
                         Text(
                           'Book Tickets',
                           style: Styles.headlineStyle1,
@@ -40,8 +41,8 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                     Container(
-                      height: 50,
-                      width: 50,
+                      height: AppLayout.getHeight(50),
+                      width: AppLayout.getWidth(50),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         image: const DecorationImage(
@@ -54,14 +55,15 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                const Gap(25),
+                Gap(AppLayout.getHeight(25)),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: const Color(0xFFF4F6FD),
                   ),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: AppLayout.getHeight(12),
+                      vertical: AppLayout.getHeight(12)),
                   child: Row(
                     children: [
                       const Icon(FluentSystemIcons.ic_fluent_search_regular,
@@ -70,7 +72,7 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                const Gap(30),
+                Gap(AppLayout.getHeight(30)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -88,21 +90,21 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          const Gap(15),
+          Gap(AppLayout.getHeight(15)),
           // Tickets - Horizontal Scroll
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.only(left: 20),
+            padding: EdgeInsets.only(left: AppLayout.getHeight(20)),
             child: Row(
               children: ticketList
                   .map((ticket) => TicketView(ticket: ticket))
                   .toList(),
             ),
           ),
-          const Gap(15),
+          Gap(AppLayout.getHeight(15)),
           // Hotels - View All
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: AppLayout.getHeight(20)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -118,10 +120,10 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          const Gap(15),
+          Gap(AppLayout.getHeight(15)),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.only(left: 20),
+            padding: EdgeInsets.only(left: AppLayout.getHeight(20)),
             child: Row(
               children:
                   hotelList.map((hotel) => HotelScreen(hotel: hotel)).toList(),
