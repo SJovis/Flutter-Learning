@@ -4,6 +4,8 @@ import 'package:gap/gap.dart';
 import '../utils/app_styles.dart';
 import 'package:hello_world/screens/ticket_view.dart';
 
+import 'hotel_screen.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -13,6 +15,7 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Styles.bgColor,
       body: ListView(
         children: [
+          // Book Tickets
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
@@ -80,7 +83,38 @@ class HomeScreen extends StatelessWidget {
                               .copyWith(color: Styles.primaryColor)),
                     )
                   ],
-                )
+                ),
+              ],
+            ),
+          ),
+          const Gap(15),
+          // Tickets - Horizontal Scroll
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.only(left: 20),
+            child: Row(
+              children: const [
+                TicketView(),
+                TicketView(),
+              ],
+            ),
+          ),
+          const Gap(15),
+          // Hotels - View All
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Hotels', style: Styles.headlineStyle2),
+                InkWell(
+                  onTap: () {
+                    print('You are tapped');
+                  },
+                  child: Text('View all',
+                      style: Styles.textStyle
+                          .copyWith(color: Styles.primaryColor)),
+                ),
               ],
             ),
           ),
@@ -90,8 +124,10 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.only(left: 20),
             child: Row(
               children: const [
-                TicketView(),
-                TicketView(),
+                HotelScreen(),
+                HotelScreen(),
+                HotelScreen(),
+                HotelScreen(),
               ],
             ),
           ),
