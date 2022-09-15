@@ -6,6 +6,7 @@ import '../utils/app_layout.dart';
 import '../utils/app_styles.dart';
 import 'package:hello_world/screens/ticket_view.dart';
 
+import '../widgets/Double_text_widget.dart';
 import 'hotel_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -17,9 +18,9 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Styles.bgColor,
       body: ListView(
         children: [
-          // Book Tickets
+          // HEADING Book Tickets + Search
           Container(
-            padding: EdgeInsets.symmetric(horizontal: AppLayout.getHeight(20)),
+            padding: EdgeInsets.symmetric(horizontal: AppLayout.getWidth(20)),
             child: Column(
               children: [
                 Gap(AppLayout.getHeight(40)),
@@ -62,7 +63,7 @@ class HomeScreen extends StatelessWidget {
                     color: const Color(0xFFF4F6FD),
                   ),
                   padding: EdgeInsets.symmetric(
-                      horizontal: AppLayout.getHeight(12),
+                      horizontal: AppLayout.getWidth(12),
                       vertical: AppLayout.getHeight(12)),
                   child: Row(
                     children: [
@@ -73,19 +74,9 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 Gap(AppLayout.getHeight(30)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Upcomging Flights', style: Styles.headlineStyle2),
-                    InkWell(
-                      onTap: () {
-                        print('You are tapped');
-                      },
-                      child: Text('View all',
-                          style: Styles.textStyle
-                              .copyWith(color: Styles.primaryColor)),
-                    )
-                  ],
+                const AppDoubleTextWidget(
+                  bigText: 'Upcoming Flights',
+                  smallText: 'View all',
                 ),
               ],
             ),
@@ -104,23 +95,14 @@ class HomeScreen extends StatelessWidget {
           Gap(AppLayout.getHeight(15)),
           // Hotels - View All
           Container(
-            padding: EdgeInsets.symmetric(horizontal: AppLayout.getHeight(20)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Hotels', style: Styles.headlineStyle2),
-                InkWell(
-                  onTap: () {
-                    print('You are tapped');
-                  },
-                  child: Text('View all',
-                      style: Styles.textStyle
-                          .copyWith(color: Styles.primaryColor)),
-                ),
-              ],
+            padding: EdgeInsets.symmetric(horizontal: AppLayout.getWidth(20)),
+            child: const AppDoubleTextWidget(
+              bigText: 'Hotels',
+              smallText: 'View all',
             ),
           ),
           Gap(AppLayout.getHeight(15)),
+          // Hotels - Horizontal Scroll
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             padding: EdgeInsets.only(left: AppLayout.getHeight(20)),
