@@ -88,7 +88,10 @@ class HomeScreen extends StatelessWidget {
             padding: EdgeInsets.only(left: AppLayout.getHeight(20)),
             child: Row(
               children: ticketList
-                  .map((ticket) => TicketView(ticket: ticket))
+                  .map((ticket) => TicketView(
+                        ticket: ticket,
+                        isColor: null,
+                      ))
                   .toList(),
             ),
           ),
