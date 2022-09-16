@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hello_world/utils/app_layout.dart';
 import 'package:hello_world/widgets/icon_text_widget.dart';
+import 'package:hello_world/widgets/ticket_tabs.dart';
 
 import '../utils/app_styles.dart';
 import '../widgets/Double_text_widget.dart';
@@ -29,53 +30,7 @@ class SearchScreen extends StatelessWidget {
           ),
           Gap(AppLayout.getHeight(20)),
           //  TOP TICKETS/HOTELS TABS
-          FittedBox(
-            child: Container(
-              padding: EdgeInsets.all(AppLayout.getHeight(3.5)),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(AppLayout.getHeight(50)),
-                color: const Color(0xFFF4F6FD),
-              ),
-              child: Row(
-                children: [
-                  // AIRLINE TICKETS
-                  Container(
-                    width: size.width * .44,
-                    padding:
-                        EdgeInsets.symmetric(vertical: AppLayout.getHeight(7)),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.horizontal(
-                        left: Radius.circular(
-                          AppLayout.getHeight(50),
-                        ),
-                      ),
-                      color: Colors.white,
-                    ),
-                    child: const Center(
-                      child: Text('Airline tickets'),
-                    ),
-                  ),
-                  // HOTELS
-                  Container(
-                    width: size.width * .44,
-                    padding:
-                        EdgeInsets.symmetric(vertical: AppLayout.getHeight(7)),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.horizontal(
-                        right: Radius.circular(
-                          AppLayout.getHeight(50),
-                        ),
-                      ),
-                      color: Colors.transparent,
-                    ),
-                    child: const Center(
-                      child: Text('Hotels'),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          const AppTicketTabs(firstTab: 'Airline tickets', secondTab: 'Hotels'),
           Gap(AppLayout.getHeight(25)),
           // DEPARTURED BOX
           const AppIconText(
